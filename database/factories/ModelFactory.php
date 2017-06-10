@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Product;
+use App\Models\EventUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use App\Models\Product;
 | database. Just tell the factory how a default model should look.
 |
 */
+
+/**
+ * Number of records, to set relation
+ */
+const NUMBER_OF_RECORDS = 20;
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(User::class, function (Faker\Generator $faker) {
@@ -50,5 +56,13 @@ $factory->define(Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'cost' => $faker->randomFloat(2, 5, 100)
+    ];
+});
+
+$factory->define(EventUser::class, function (Faker\Generator $faker) {
+
+    return [
+        'event_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS),
+        'user_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS)
     ];
 });
