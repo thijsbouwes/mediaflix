@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use App\Models\Event;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,7 +15,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -20,5 +23,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+}, 'user');
+
+$factory->define(User::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => 'Thijs Bouwes',
+        'email' => 'thijsbouwes@gmail.com',
+        'password' => bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+}, 'admin');
+
+$factory->define(Event::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->sentence(3),
+        'cost' => $faker->randomFloat(2, 5, 100)
     ];
 });
