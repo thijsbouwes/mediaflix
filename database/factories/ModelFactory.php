@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\Product;
 use App\Models\EventUser;
+use App\Models\Expense;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,5 +65,14 @@ $factory->define(EventUser::class, function (Faker\Generator $faker) {
     return [
         'event_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS),
         'user_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS)
+    ];
+});
+
+$factory->define(Expense::class, function (Faker\Generator $faker) {
+
+    return [
+        'event_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS),
+        'product_id' => $faker->numberBetween(1, NUMBER_OF_RECORDS),
+        'quantity' => $faker->randomFloat(2, 5, 100)
     ];
 });
