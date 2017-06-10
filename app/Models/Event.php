@@ -12,6 +12,14 @@ class Event extends Model
      */
     public function users()
     {
-        $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    /**
+     * Get the expenses for the product.
+     */
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
     }
 }
