@@ -13,4 +13,12 @@ class Product extends Model
     {
         return $this->hasMany(Expense::class);
     }
+
+    /**
+     * Get the stocks for the product.
+     */
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }
