@@ -1,8 +1,7 @@
-<?php 
-$I = new FunctionalTester($scenario);
+<?php
+$I = new ApiTester($scenario);
 
-$I->am('An api user');
-$I->wantTo('create a new product');
+$I->wantTo('create a product via API');
 
 $I->sendPOST('/products', json_encode([
         'name' => 'Example product',

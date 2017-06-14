@@ -10,6 +10,3 @@ modules:
     enabled:
         - Helper\Functional
         - Laravel5
-        - REST:
-            url: 'http://localhost:8000/api'
-            depends: Laravel5
