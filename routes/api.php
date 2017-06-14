@@ -13,6 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
+//Route::middleware('auth:api')->get('/user', function () {
+//    return
+//});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['namespace' => 'Api'], function() {
+    // Status
+    Route::get('/', 'StatusController');
+
+    // Product
+    Route::group(['namespace' => 'Product', 'prefix' => 'products'], function() {
+        Route::get('/', 'ListController');
+        Route::get('/{product}', 'FetchController')->where(['product' => '[1-9|0-9]*']);
+        Route::delete('/{product}', 'DeleteController')->where(['product' => '[1-9|0-9]*']);
+        Route::patch('/{product}', 'PatchController')->where(['product' => '[1-9|0-9]*']);
+        Route::post('/', 'CreateController');
+    });
 });
