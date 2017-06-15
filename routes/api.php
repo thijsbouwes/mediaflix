@@ -33,4 +33,13 @@ Route::group(['namespace' => 'Api'], function() {
         Route::patch('/{product}', 'ProductResource@update')->where(['product' => '[1-9|0-9]*']);
         Route::post('/', 'ProductResource@store');
     });
+
+    // Event
+    Route::group(['prefix' => 'events'], function() {
+        Route::get('/', 'EventResource@index');
+        Route::get('/{event}', 'EventResource@show')->where(['event' => '[1-9|0-9]*']);
+        Route::delete('/{event}', 'EventResource@destroy')->where(['event' => '[1-9|0-9]*']);
+        Route::patch('/{event}', 'EventResource@update')->where(['event' => '[1-9|0-9]*']);
+        Route::post('/', 'EventResource@store');
+    });
 });
