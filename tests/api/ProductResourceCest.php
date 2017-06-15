@@ -4,8 +4,8 @@ use Codeception\Util\HttpCode;
 
 class ProductResourceCest
 {
-    protected const ENDPOINT = '/products';
-    protected const MODEL = 'products';
+    const ENDPOINT = '/products';
+    const MODEL = 'products';
 
     public function getAllProducts(ApiTester $I)
     {
