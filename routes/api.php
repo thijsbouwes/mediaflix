@@ -26,11 +26,11 @@ Route::group(['namespace' => 'Api'], function() {
     Route::get('/', 'StatusController');
 
     // Product
-    Route::group(['namespace' => 'Product', 'prefix' => 'products'], function() {
-        Route::get('/', 'ListController');
-        Route::get('/{product}', 'FetchController')->where(['product' => '[1-9|0-9]*']);
-        Route::delete('/{product}', 'DeleteController')->where(['product' => '[1-9|0-9]*']);
-        Route::patch('/{product}', 'PatchController')->where(['product' => '[1-9|0-9]*']);
-        Route::post('/', 'CreateController');
+    Route::group(['prefix' => 'products'], function() {
+        Route::get('/', 'ProductResource@index');
+        Route::get('/{product}', 'ProductResource@show')->where(['product' => '[1-9|0-9]*']);
+        Route::delete('/{product}', 'ProductResource@destroy')->where(['product' => '[1-9|0-9]*']);
+        Route::patch('/{product}', 'ProductResource@update')->where(['product' => '[1-9|0-9]*']);
+        Route::post('/', 'ProductResource@store');
     });
 });
