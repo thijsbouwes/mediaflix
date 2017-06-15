@@ -49,7 +49,7 @@ $factory->define(Event::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->sentence(3),
-        'cost' => $faker->randomFloat(2, 5, 100)
+        'price' => $faker->randomFloat(2, 5, 100)
     ];
 });
 
@@ -57,7 +57,7 @@ $factory->define(Product::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'cost' => $faker->randomFloat(2, 5, 100)
+        'price' => $faker->randomFloat(2, 5, 100)
     ];
 });
 
