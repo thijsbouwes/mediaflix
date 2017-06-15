@@ -1,5 +1,5 @@
 # Skihut
-
+[![Build Status](https://travis-ci.org/ThijsBouwes/skihut.svg?branch=master)](https://travis-ci.org/ThijsBouwes/skihut)
 [![NL](https://img.shields.io/badge/Made%20in-NL-blue.svg)](https://computer4life.nl)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
