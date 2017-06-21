@@ -4,7 +4,7 @@ use Codeception\Util\HttpCode;
 
 class EventResourceCest
 {
-    const ENDPOINT = '/events';
+    const ENDPOINT = '/events/';
     const MODEL = 'events';
 
     public function getAllEvents(ApiTester $I)
@@ -27,7 +27,7 @@ class EventResourceCest
     public function getSingleEvent(ApiTester $I)
     {
         $eventOneId = $I->haveRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);
-        $I->sendGET(self::ENDPOINT."/{$eventOneId}");
+        $I->sendGET(self::ENDPOINT.$eventOneId);
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->canSeeResponseIsJson();
 
@@ -51,7 +51,7 @@ class EventResourceCest
     public function updateEvent(ApiTester $I)
     {
         $eventOneId = $I->haveRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);
-        $I->sendPATCH(self::ENDPOINT."/{$eventOneId}", json_encode([
+        $I->sendPATCH(self::ENDPOINT.$eventOneId, json_encode([
             'name' => 'Birthday party',
             'price' => '30.33'
         ]));
@@ -64,7 +64,7 @@ class EventResourceCest
     public function deleteEvent(ApiTester $I)
     {
         $eventOneId = $I->haveRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);
-        $I->sendDELETE(self::ENDPOINT."/{$eventOneId}");
+        $I->sendDELETE(self::ENDPOINT.$eventOneId);
 
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
         $I->dontSeeRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);

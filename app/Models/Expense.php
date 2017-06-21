@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'product_id',
+        'quantity'
+    ];
+
+    /**
      * Get the Event that owns the Expense.
      */
     public function events()

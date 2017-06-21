@@ -15,7 +15,7 @@ class Event extends Model
         'name',
         'price'
     ];
-    
+
     /**
      * Get all the users for the Event.
      */
