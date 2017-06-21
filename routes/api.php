@@ -13,17 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function () {
-//    return
-//});
-$where = " AND post_date > '" . date('Y-m-d', strtotime('-30 days')) . "'";
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group(['namespace' => 'Api'], function() {
     // Status
     Route::get('/', 'StatusController');
+
+    // User
+    Route::get('/user', 'UserResource@show');
 
     // Product
     Route::group(['prefix' => 'products'], function() {
