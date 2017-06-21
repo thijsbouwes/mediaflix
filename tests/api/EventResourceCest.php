@@ -67,6 +67,8 @@ class EventResourceCest
         $I->sendDELETE(self::ENDPOINT.$eventOneId);
 
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
+
+        $I->expect('item is deleted');
         $I->dontSeeRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);
     }
 }

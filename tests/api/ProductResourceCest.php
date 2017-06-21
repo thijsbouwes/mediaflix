@@ -67,6 +67,8 @@ class ProductResourceCest
         $I->sendDELETE(self::ENDPOINT.$productOneId);
 
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
+
+        $I->expect('item is deleted');
         $I->dontSeeRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);
     }
 }

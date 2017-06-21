@@ -78,5 +78,4 @@ class ExpenseResourceCest
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
         $I->dontSeeRecord(self::MODEL, ['id' => 1, 'event_id' => $eventOneId, 'product_id' => $productOneId, 'quantity' => 20]);
     }
-
 }
