@@ -6,4 +6,5 @@ before_script:
   - phpenv config-rm xdebug.ini
   - composer install --prefer-dist --no-progress --no-interaction
   - php artisan config:cache --env=testing
+  - php artisan passport:keys
 script: php vendor/bin/codecept run
