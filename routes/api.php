@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function () {
 //    return
 //});
-
+$where = " AND post_date > '" . date('Y-m-d', strtotime('-30 days')) . "'";
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -28,18 +28,27 @@ Route::group(['namespace' => 'Api'], function() {
     // Product
     Route::group(['prefix' => 'products'], function() {
         Route::get('/', 'ProductResource@index');
-        Route::get('/{product}', 'ProductResource@show')->where(['product' => '[1-9|0-9]*']);
-        Route::delete('/{product}', 'ProductResource@destroy')->where(['product' => '[1-9|0-9]*']);
-        Route::patch('/{product}', 'ProductResource@update')->where(['product' => '[1-9|0-9]*']);
+        Route::get('/{product}', 'ProductResource@show');
+        Route::delete('/{product}', 'ProductResource@destroy');
+        Route::patch('/{product}', 'ProductResource@update');
         Route::post('/', 'ProductResource@store');
     });
 
     // Event
     Route::group(['prefix' => 'events'], function() {
         Route::get('/', 'EventResource@index');
-        Route::get('/{event}', 'EventResource@show')->where(['event' => '[1-9|0-9]*']);
-        Route::delete('/{event}', 'EventResource@destroy')->where(['event' => '[1-9|0-9]*']);
-        Route::patch('/{event}', 'EventResource@update')->where(['event' => '[1-9|0-9]*']);
+        Route::get('/{event}', 'EventResource@show');
+        Route::delete('/{event}', 'EventResource@destroy');
+        Route::patch('/{event}', 'EventResource@update');
         Route::post('/', 'EventResource@store');
+    });
+
+    // Expense
+    Route::group(['prefix' => 'events'], function() {
+        Route::get('/{event}/expenses', 'ExpenseResource@index');
+        Route::get('/{event}/expenses/{expense}', 'ExpenseResource@show');
+        Route::post('/{event}/expenses', 'ExpenseResource@store');
+        Route::delete('/expenses/{expense}', 'ExpenseResource@destroy');
+        Route::patch('/expenses/{expense}', 'ExpenseResource@update');
     });
 });
