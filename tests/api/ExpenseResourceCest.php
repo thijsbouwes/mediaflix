@@ -27,7 +27,7 @@ class ExpenseResourceCest
         $eventOneId = $I->haveRecord('events', ['name' => 'Birthday party', 'price' => '30.33']);
         $expenseOneId = $I->haveRecord(self::MODEL, ['event_id' => $eventOneId, 'product_id' => $productOneId, 'quantity' => 10]);
 
-        $I->sendGET(self::ENDPOINT.$eventOneId.'/expenses/'.$expenseOneId);
+        $I->sendGET(self::ENDPOINT.'expenses/'.$expenseOneId);
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->canSeeResponseIsJson();
 

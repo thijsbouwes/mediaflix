@@ -28,11 +28,9 @@ class ExpenseResource extends Controller
      * @param Expense $expense
      * @return JsonResponse
      */
-    public function show(Event $event, Expense $expense)
+    public function show(Expense $expense)
     {
-        $eventExpense = $event->expenses()->where('id', $expense->id)->get();
-
-        return new JsonResponse($eventExpense);
+        return new JsonResponse($expense);
     }
 
     /**

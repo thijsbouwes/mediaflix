@@ -46,8 +46,8 @@ Route::group(['namespace' => 'Api'], function() {
     // Expense
     Route::group(['prefix' => 'events'], function() {
         Route::get('/{event}/expenses', 'ExpenseResource@index');
-        Route::get('/{event}/expenses/{expense}', 'ExpenseResource@show');
         Route::post('/{event}/expenses', 'ExpenseResource@store');
+        Route::get('/expenses/{expense}', 'ExpenseResource@show');
         Route::delete('/expenses/{expense}', 'ExpenseResource@destroy');
         Route::patch('/expenses/{expense}', 'ExpenseResource@update');
     });
