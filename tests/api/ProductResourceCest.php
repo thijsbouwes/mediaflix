@@ -4,7 +4,7 @@ use Codeception\Util\HttpCode;
 
 class ProductResourceCest
 {
-    const ENDPOINT = '/products';
+    const ENDPOINT = '/products/';
     const MODEL = 'products';
 
     public function getAllProducts(ApiTester $I)
@@ -27,7 +27,7 @@ class ProductResourceCest
     public function getSingleProduct(ApiTester $I)
     {
         $productOneId = $I->haveRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);
-        $I->sendGET(self::ENDPOINT."/{$productOneId}");
+        $I->sendGET(self::ENDPOINT.$productOneId);
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->canSeeResponseIsJson();
 
@@ -51,7 +51,7 @@ class ProductResourceCest
     public function updateProduct(ApiTester $I)
     {
         $productOneId = $I->haveRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);
-        $I->sendPATCH(self::ENDPOINT."/{$productOneId}", json_encode([
+        $I->sendPATCH(self::ENDPOINT.$productOneId, json_encode([
             'name' => 'Chips',
             'price' => '2.22'
         ]));
@@ -64,7 +64,7 @@ class ProductResourceCest
     public function deleteProduct(ApiTester $I)
     {
         $productOneId = $I->haveRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);
-        $I->sendDELETE(self::ENDPOINT."/{$productOneId}");
+        $I->sendDELETE(self::ENDPOINT.$productOneId);
 
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
         $I->dontSeeRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);
