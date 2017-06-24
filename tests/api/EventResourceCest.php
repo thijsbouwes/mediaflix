@@ -7,6 +7,15 @@ class EventResourceCest
     const ENDPOINT = '/events/';
     const MODEL = 'events';
 
+    /**
+     * Get authenticated user token
+     * @param ApiTester $I
+     */
+    public function _before(ApiTester $I)
+    {
+        $I->authenticateUser();
+    }
+
     public function getAllEvents(ApiTester $I)
     {
         $eventOneId = $I->haveRecord(self::MODEL, ['name' => 'Christmas eve', 'price' => '15.45']);

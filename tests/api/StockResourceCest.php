@@ -7,6 +7,15 @@ class StockResourceCest
     const ENDPOINT = '/products/';
     const MODEL = 'stocks';
 
+    /**
+     * Get authenticated user token
+     * @param ApiTester $I
+     */
+    public function _before(ApiTester $I)
+    {
+        $I->authenticateUser();
+    }
+
     public function getAllStock(ApiTester $I)
     {
         $productOneId = $I->haveRecord('products', ['name' => 'Heineken', 'price' => '12.34']);

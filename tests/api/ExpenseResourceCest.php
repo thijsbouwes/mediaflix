@@ -7,6 +7,15 @@ class ExpenseResourceCest
     const ENDPOINT = '/events/';
     const MODEL = 'expenses';
 
+    /**
+     * Get authenticated user token
+     * @param ApiTester $I
+     */
+    public function _before(ApiTester $I)
+    {
+        $I->authenticateUser();
+    }
+
     public function getAllExpenses(ApiTester $I)
     {
         $productOneId = $I->haveRecord('products', ['name' => 'Heineken', 'price' => '12.34']);

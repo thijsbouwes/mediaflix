@@ -7,6 +7,15 @@ class ProductResourceCest
     const ENDPOINT = '/products/';
     const MODEL = 'products';
 
+    /**
+     * Get authenticated user token
+     * @param ApiTester $I
+     */
+    public function _before(ApiTester $I)
+    {
+        $I->authenticateUser();
+    }
+
     public function getAllProducts(ApiTester $I)
     {
         $productOneId = $I->haveRecord(self::MODEL, ['name' => 'Heineken', 'price' => '12.34']);

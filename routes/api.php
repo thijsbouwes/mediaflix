@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'Api'], function() {
+Route::group(['namespace' => 'Api', 'middleware' => 'auth:api'], function() {
     // Status
     Route::get('/', 'StatusController');
 
