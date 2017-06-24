@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
             $router->forAccessTokens();
         };
 
-        Passport::routes(null, ['prefix' => 'api/oauth', 'middleware' => 'json']);
+        Passport::routes($callback, ['prefix' => 'api/oauth', 'middleware' => 'json']);
         Passport::tokensExpireIn(Carbon::now()->addDays(15));
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
     }

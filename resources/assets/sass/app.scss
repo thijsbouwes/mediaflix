@@ -1,9 +1,14 @@
-
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+// Materialize colors
+@import "node_modules/materialize-css/sass/components/color";
 
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Materialize
+@import "node_modules/materialize-css/sass/materialize";
+
+@import "navbar";
+@import "background";
