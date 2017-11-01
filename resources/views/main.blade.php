@@ -9,9 +9,6 @@
         <!--nav-->
         @include('partials._nav')
 
-        <!--show meessages when set-->
-        @include('partials._messages')
-
         <!--content-->
         <div id="app">
             @yield('content')        

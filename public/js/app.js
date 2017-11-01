@@ -11028,6 +11028,9 @@ module.exports = g;
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -11048,8 +11051,63 @@ window.Vue = __webpack_require__(39);
 
 Vue.component('example', __webpack_require__(36));
 
+var Errors = function () {
+    function Errors() {
+        _classCallCheck(this, Errors);
+
+        this.errors = {};
+    }
+
+    _createClass(Errors, [{
+        key: 'get',
+        value: function get(field) {
+            if (this.errors[field]) {
+                return this.errors[field][0];
+            } else {
+                return 'Invalid input';
+            }
+        }
+    }, {
+        key: 'record',
+        value: function record(errors) {
+            this.errors = errors;
+        }
+    }]);
+
+    return Errors;
+}();
+
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+
+    data: {
+        products: [],
+        name: '',
+        price: '',
+        errors: new Errors()
+    },
+
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/api/products').then(function (response) {
+            return _this.products = response.data.data;
+        });
+    },
+
+
+    methods: {
+        addProduct: function addProduct() {
+            axios.post('/api/products', {
+                name: this.name,
+                price: this.price
+            }).then(function (response) {
+                console.log(response.data);
+            }).catch(function (error) {
+                return errors.record(error.response.data);
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -11991,10 +12049,23 @@ if (token) {
 /***/ (function(module, exports) {
 
 $(function () {
-    // activates sidenave
+    // Activate sidenave
     $(".button-collapse").sideNav();
-    // activates dropdown on hover
+
+    // Activate dropdown on hover
     $(".dropdown-button").dropdown({ hover: true });
+
+    // Activate modals
+    $('.modal').modal();
+
+    // Activate datepickers
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+    // Activate select
+    $('select').material_select();
 });
 
 /***/ }),

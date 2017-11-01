@@ -1,9 +1,19 @@
-.banner {
-    height: calc(100vh - 64px);
+.nav ~ div > .banner {
+    margin-top: -20px;
+}
 
+.banner {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    &.space-top {
+        padding-top: 100px;
+    }
+
+    &.full-height {
+        height: calc(100vh - 64px);
+    }
 
     &.image-1 {
         background-image: url('/images/app/beer-1.jpg');

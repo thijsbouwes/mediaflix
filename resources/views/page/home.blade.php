@@ -3,7 +3,7 @@
 @section('title', ' | Home')
 
 @section('content')
-    <section class="valign-wrapper || banner image-1">
+    <section class="valign-wrapper || banner full-height image-1">
         <div class="row">
             <div class="col s12 center-align white-text">
                 <h1 class="valign">

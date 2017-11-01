@@ -57,7 +57,8 @@ $factory->define(Product::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'price' => $faker->randomFloat(2, 5, 100)
+        'price' => $faker->randomFloat(2, 5, 100),
+        'parameters' => [['id' => $faker->randomDigit()], ['id' => $faker->randomDigit()]]
     ];
 });
 
