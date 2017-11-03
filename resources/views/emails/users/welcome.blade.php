@@ -1,12 +1,12 @@
 @component('mail::message')
-    # Dear {{ $user->name }}
+# Dear {{ $user->name }}
 
-    Your order has been shipped!
+Welcome to {{ config('app.name') }} your account has been created!
 
-    @component('mail::button', ['url' => '/admin'])
-        View Account
-    @endcomponent
+@component('mail::button', ['url' => config('app.url').'admin'])
+    View Account
+@endcomponent
 
-    Thanks,<br>
-    {{ config('app.name') }}
+Thanks,<br>
+{{ config('app.name') }}
 @endcomponent
