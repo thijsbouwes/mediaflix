@@ -15,7 +15,6 @@
         </div>
 
         <!--footer and js-->
-        @include('partials._footer')
         @include('partials._javascript')
         @yield('scripts')
         

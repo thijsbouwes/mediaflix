@@ -12009,3 +12009,10 @@ button.picker__close:focus {
   background-image: url("/images/app/beer-1.jpg");
 }
 
+.promo i {
+  margin: 40px 0;
+  color: #ee6e73;
+  font-size: 7rem;
+  display: block;
+}
+

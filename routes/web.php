@@ -15,6 +15,6 @@ Auth::routes();
 Route::get('/', 'PageController@home')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+    Route::get('/dashboard/{vue_capture?}', 'PageController@dashboard')->name('dashboard')->where('vue_capture', '[\/\w\.-]*');
     Route::get('/logout', 'Auth\LoginController@logout');
 });
