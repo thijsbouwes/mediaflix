@@ -23,12 +23,4 @@ class Event extends Model
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
-
-    /**
-     * Get the expenses for the product.
-     */
-    public function expenses()
-    {
-        return $this->hasMany(Expense::class);
-    }
 }
