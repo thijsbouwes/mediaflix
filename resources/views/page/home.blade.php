@@ -54,7 +54,7 @@
 
     <section>
         <div class="parallax-container">
-            <div class="parallax"><img src="images/code.jpg"></div>
+            <div class="parallax"><img src="/storage/images/code.jpg"></div>
         </div>
     </section>
 

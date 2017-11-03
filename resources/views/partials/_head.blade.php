@@ -5,7 +5,7 @@
 <!-- styles -->
 <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
 
-<link rel="shortcut icon" href="/images/app/mountain.png" type="image/png">
+<link rel="shortcut icon" href="/storage/images/mountain.png" type="image/png">
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
