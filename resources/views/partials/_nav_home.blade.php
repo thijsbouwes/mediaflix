@@ -23,9 +23,7 @@
 <!--Mobile nav-->
 <ul class="side-nav" id="mobile-menu">
     @if (Auth::check())
-        <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/events"><i class="material-icons right">event</i>Events</a></li>
-        <li class="{{ Request::is('users') ? "active" : "" }}"><a href="/users"><i class="material-icons right">supervisor_account</i>Users</a></li>
-        <li class="{{ Request::is('products') ? "active" : "" }}"><a href="/products"><i class="material-icons right">shopping_cart</i>Products</a></li>
+        <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#events"><i class="material-icons right">event</i>Events</a></li>
     @endif
 
     @if (Auth::check())
@@ -49,9 +47,7 @@
                     <!--Desktop nav-->
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         @if (Auth::check())
-                            <li class="{{ Request::is('events') ? "active" : "df" }}"><a href="/events"><i class="material-icons right">event</i>Events</a></li>
-                            <li class="{{ Request::is('users') ? "active" : "" }}"><a href="/users"><i class="material-icons right">supervisor_account</i>Users</a></li>
-                            <li class="{{ Request::is('products') ? "active" : "" }}"><a href="/products"><i class="material-icons right">shopping_cart</i>Products</a></li>
+                            <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#events"><i class="material-icons right">event</i>Events</a></li>
                         @endif
 
                         @if (Auth::check())

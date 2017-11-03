@@ -79,4 +79,3 @@
     </section>
 @stop
 
-@include('partials._footer')
