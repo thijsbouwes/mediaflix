@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('/', 'PageController@home')->name('home');
 
 Route::get('/test', function() {
-   return \App\Models\Product::all();
+   return event(new \App\Events\ShippingStatusUpdated());
 });
 
 Route::group(['middleware' => 'auth'], function() {
