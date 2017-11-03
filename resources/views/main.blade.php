@@ -6,8 +6,8 @@
     </head>
 
     <body>
-        <!--nav-->
-        @include('partials._nav')
+    <!--nav-->
+    @include('partials._nav_home')
 
         <!--content-->
         <div id="app">
