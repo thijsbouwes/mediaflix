@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div class="container">
-        <add-event></add-event>
-        <list-events></list-events>
+    <div class="container center-align">
+        <h2>Goodafternoon Thijs</h2>
     </div>
 
+    <movie-list></movie-list>
 @stop

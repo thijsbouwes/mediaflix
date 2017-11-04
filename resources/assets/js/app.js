@@ -15,8 +15,8 @@ window.Event = new Vue();
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('add-event', require('./components/AddEvent.vue'));
-Vue.component('list-events', require('./components/ListEvents.vue'));
+Vue.component('movie-list', require('./components/MovieList.vue'));
+Vue.component('movie', require('./components/Movie.vue'));
 
 const app = new Vue({
     el: '#app',

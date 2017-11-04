@@ -13,8 +13,7 @@
                 </h1>
 
                 @auth
-                    <a class="waves-effect waves-light btn-large" href="{{ route('dashboard') }}">View media<i class="material-icons right">play_circle_filled
-                            play_circle_filled</i></a>
+                    <a class="waves-effect waves-light btn-large" href="{{ route('dashboard') }}">View media<i class="material-icons right">play_circle_filled</i></a>
                 @endauth
 
                 @guest

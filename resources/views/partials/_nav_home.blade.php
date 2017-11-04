@@ -23,7 +23,7 @@
 <!--Mobile nav-->
 <ul class="side-nav" id="mobile-menu">
     @if (Auth::check())
-        <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#events"><i class="material-icons right">event</i>Events</a></li>
+        <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#movies"><i class="material-icons right">local_movies</i>Movies</a></li>
     @endif
 
     @if (Auth::check())
@@ -47,7 +47,7 @@
                     <!--Desktop nav-->
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         @if (Auth::check())
-                            <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#events"><i class="material-icons right">event</i>Events</a></li>
+                            <li class="{{ Request::is('events') ? "active" : "" }}"><a href="/dashboard#movies"><i class="material-icons right">local_movies</i>Movies</a></li>
                         @endif
 
                         @if (Auth::check())
