@@ -13,11 +13,11 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ title }}<i class="material-icons right">close</i></span>
             <p v-text="description"></p>
-            <a class="waves-effect waves-light btn modal-trigger" @click="openTrailer" href="#trailer">
+            <a class="waves-effect waves-light btn modal-trigger center-align" @click="openTrailer" href="#trailer">
                 <i class="material-icons right">play_circle_filled</i>Trailer</a>
-            <button class="btn waves-effect waves-light right" type="submit" name="action">Watch movie
-                <i class="material-icons right">local_movies</i>
-            </button>
+            <hr>
+            <a class="waves-effect waves-light btn modal-trigger center-align" @click="openMovie" href="#watch">
+                <i class="material-icons right">local_movies</i>Watch movie</a>
         </div>
     </div>
 </template>
@@ -57,7 +57,19 @@
 
         methods: {
             openTrailer() {
-                Event.$emit('videopopup', this.youtube.key);
+                Event.$emit('videopopup', { youtube: this.youtube.key, name: this.title });
+            },
+
+            openMovie() {
+                let elem = document.getElementById("video-example");
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                }
+                elem.play();
             },
 
             getTrailer() {

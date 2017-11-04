@@ -1,7 +1,7 @@
 <template>
     <div id="trailer" class="modal">
         <div class="modal-content">
-            <h4>Modal Header</h4>
+            <h4 v-text="name"></h4>
             <iframe v-if="youtubeCode" width="100%" height="400" v-bind:src="linkYoutube" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
@@ -16,7 +16,8 @@
     export default {
         data() {
             return {
-                youtubeCode: ""
+                youtubeCode: "",
+                name: ""
             }
         },
 
@@ -25,7 +26,10 @@
         },
 
         mounted() {
-            Event.$on('videopopup', (data) => this.youtubeCode = data );
+            Event.$on('videopopup', (data) => {
+                this.youtubeCode = data.youtube;
+                this.name = data.name;
+            });
         },
 
         computed: {
