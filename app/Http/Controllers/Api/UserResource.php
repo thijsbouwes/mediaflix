@@ -18,7 +18,7 @@ class UserResource extends Controller
     }
 
     public function update(User $user) {
-        
+
         $user = Auth::user();
         return new JsonResponse($user);
     }

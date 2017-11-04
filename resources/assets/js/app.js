@@ -36,7 +36,7 @@ const app = new Vue({
 
     methods: {
         updateLastMovie() {
-            alert(this.lastmovie);
+
             // axios.patch(ENDPOINTS.USER, config)
             // .then(response => {
             //     this.youtube = response.data.results[0];
