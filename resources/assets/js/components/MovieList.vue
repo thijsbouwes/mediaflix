@@ -17,14 +17,30 @@
     import { ENDPOINTS } from '../config/api';
 
     export default {
+        props: {
+            'type': {
+                type: String,
+                required: true
+            },
+        },
+
         data() {
             return {
                 movies: [],
             }
         },
 
+        methods: {
+            getRecommended() {
+                axios.get(ENDPOINTS.URL+this.lastviewed+'/'+ENDPOINTS.RECOMMENDED+ENDPOINTS.API_KEY)
+                    .then(response => {
+                        this.movies = response.data.results
+                    });
+            }
+        },
+
         mounted() {
-            axios.get(ENDPOINTS.URL+ENDPOINTS.POPULAR+ENDPOINTS.API_KEY)
+            axios.get(ENDPOINTS.URL+this.type+ENDPOINTS.API_KEY)
                 .then(response => {
                     this.movies = response.data.results
                 });

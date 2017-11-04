@@ -8,7 +8,29 @@
         <h2>Goodafternoon Thijs</h2>
     </div>
 
-    <movie-list></movie-list>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" href="#popular">Popular</a></li>
+                <li class="tab col s3"><a href="#upcoming">Upcoming</a></li>
+                <li class="tab col s3"><a href="#top_rated">Top rated</a></li>
+                <li class="tab col s3"><a href="#recommendations">Recommendations</a></li>
+            </ul>
+        </div>
+        <div id="popular" class="col s12">
+            <movie-list type="popular"></movie-list>
+        </div>
+        <div id="upcoming" class="col s12">
+            <movie-list type="upcoming"></movie-list>
+        </div>
+        <div id="top_rated" class="col s12">
+            <movie-list type="top_rated"></movie-list>
+        </div>
+        <div id="recommendations" class="col s12">
+            <p class="center-align">Show recommedations bassed on the previous seen videos</p>
+        </div>
+    </div>
+
     <movie-modal></movie-modal>
 
     <div id="watch" class="modal">

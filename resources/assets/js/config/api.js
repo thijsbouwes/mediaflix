@@ -4,7 +4,10 @@ export const ENDPOINTS = {
     'URL_PHOTO': 'http://image.tmdb.org/t/p/w500/',
     'URL_YOUTUBE': 'https://www.youtube.com/embed/',
     'POPULAR': 'popular',
-    'VIDEO': 'videos'
+    'TOP_RATED': 'top_rated',
+    'UPCOMING': 'upcoming',
+    'VIDEO': 'videos',
+    'RECOMMENDED': 'recommendations'
 };
 
 export const HTTP_CODES = {
