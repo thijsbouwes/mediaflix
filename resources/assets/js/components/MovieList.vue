@@ -3,8 +3,10 @@
         <div class="row" v-for="i in Math.ceil(movies.length / 4)">
             <div class="col s12 l3 m4" v-for="movie in movies.slice((i - 1) * 4, i * 4)">
                 <movie v-bind:title="movie.title"
+                       v-bind:number="movie.id"
                        v-bind:description="movie.overview"
-                       v-bind:poster_path="movie.poster_path">
+                       v-bind:poster_path="movie.poster_path"
+                       v-bind:ratting="movie.vote_average">
                 </movie>
             </div>
         </div>
@@ -12,6 +14,8 @@
 </template>
 
 <script>
+    import { ENDPOINTS } from '../config/api';
+
     export default {
         data() {
             return {
@@ -20,12 +24,10 @@
         },
 
         mounted() {
-            axios.get('https://api.themoviedb.org/3/movie/popular?api_key=154caf561d5edfa26777372470a6dd01')
+            axios.get(ENDPOINTS.URL+ENDPOINTS.POPULAR+ENDPOINTS.API_KEY)
                 .then(response => {
                     this.movies = response.data.results
-//                    console.log(response.data)
                 });
-//                .then(response => this.events = response.data.data);
         },
     }
 </script>

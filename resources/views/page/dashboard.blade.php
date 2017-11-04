@@ -9,4 +9,5 @@
     </div>
 
     <movie-list></movie-list>
+    <movie-modal></movie-modal>
 @stop
