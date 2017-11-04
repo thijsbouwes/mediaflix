@@ -28,11 +28,10 @@ window.axios = require('axios');
  * a simple convenience so we don't have to attach every token manually.
  */
 
+// window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    // window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-
     let config = {
         headers: {
             'X-My-Custom-Header': token.content,

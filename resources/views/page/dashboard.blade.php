@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="container center-align">
-        <h2>Goodafternoon Thijs</h2>
+        <h2>Goodafternoon @{{ username }}</h2>
     </div>
 
     <div class="row">

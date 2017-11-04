@@ -22,10 +22,30 @@ Vue.component('movie', require('./components/Movie.vue'));
 const app = new Vue({
     el: '#app',
 
-    methods: {
+    mounted() {
+        Event.$on('movieplay', (data) => {
+            this.lastmovie = data;
+            this.updateLastMovie();
+        });
 
+        // axios.get(ENDPOINTS.URL+this.number+'/'+ENDPOINTS.USER, config)
+        // .then(response => {
+        //     this.youtube = response.data.results[0];
+        // })
+    },
+
+    methods: {
+        updateLastMovie() {
+            alert(this.lastmovie);
+            // axios.patch(ENDPOINTS.USER, config)
+            // .then(response => {
+            //     this.youtube = response.data.results[0];
+            // })
+        }
     },
 
     data: {
+        username: "Thijs",
+        lastmovie: ""
     }
 });

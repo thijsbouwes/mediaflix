@@ -27,6 +27,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'last_movie' => 100,
         'remember_token' => str_random(10),
     ];
 }, 'user');
@@ -38,6 +39,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
         'email' => 'thijsbouwes@gmail.com',
         'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
+        'last_movie' => 10,
     ];
 }, 'admin');
 

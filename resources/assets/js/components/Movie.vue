@@ -61,6 +61,8 @@
             },
 
             openMovie() {
+                Event.$emit('movieplay', this.number);
+
                 let elem = document.getElementById("video-example");
                 if (elem.requestFullscreen) {
                     elem.requestFullscreen();

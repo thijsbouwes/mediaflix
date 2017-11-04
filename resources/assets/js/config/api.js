@@ -7,7 +7,8 @@ export const ENDPOINTS = {
     'TOP_RATED': 'top_rated',
     'UPCOMING': 'upcoming',
     'VIDEO': 'videos',
-    'RECOMMENDED': 'recommendations'
+    'RECOMMENDED': 'recommendations',
+    'USER': '/api/user'
 };
 
 export const HTTP_CODES = {
